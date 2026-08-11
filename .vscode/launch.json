@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "调试：4 指令乱序流水线 Demo",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/ooo-demo",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "${workspaceFolder}/.vscode/gdb-no-debuginfod.sh",
+      "preLaunchTask": "构建：4 指令调试 Demo",
+      "setupCommands": [
+        {
+          "description": "禁用启动时下载系统库调试符号",
+          "text": "-gdb-set debuginfod enabled off",
+          "ignoreFailures": true
+        },
+        {
+          "description": "启用 GDB 的 C++ 友好显示",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

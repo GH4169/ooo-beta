@@ -1,0 +1,18 @@
+{
+  "version": 4,
+  "configurations": [
+    {
+      "name": "Linux - 4 指令 Demo",
+      "compilerPath": "/usr/bin/g++",
+      "intelliSenseMode": "linux-gcc-x64",
+      "cStandard": "c17",
+      "cppStandard": "gnu++17",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": [
+        "TRACE_RANDOM=0",
+        "UARCH_USE_BASELINE=0",
+        "DEBUG_LEVEL=DEBUG_FULL"
+      ]
+    }
+  ]
+}
