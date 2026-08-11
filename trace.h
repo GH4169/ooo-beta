@@ -27,7 +27,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "arch.h"
 #include "uarch.h"
 
+#ifndef TRACE_RANDOM
 #define TRACE_RANDOM (1)
+#endif
 #define TRACE_USE_BASELINE (0)
 
 #if (!TRACE_USE_BASELINE)

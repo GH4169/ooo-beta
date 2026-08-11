@@ -37,7 +37,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define DEBUG_TRACE (1)   /* no asserts, print trace */
 #define DEBUG_NONE (0)    /* no asserts, no print */
 //#define DEBUG_LEVEL DEBUG_VERBOSE
+#ifndef DEBUG_LEVEL
 #define DEBUG_LEVEL DEBUG_FULL
+#endif
 //#define DEBUG_LEVEL DEBUG_SILENT
 //#define DEBUG_LEVEL DEBUG_NONE
 

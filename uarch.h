@@ -31,9 +31,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 //////////////////////////////////
 
+#ifndef UARCH_USE_BASELINE
 #define UARCH_USE_BASELINE (1)   // use baseline config below
+#endif
+#ifndef UARCH_ROB_RENAME
 #define UARCH_ROB_RENAME (0)     // ROB rename vs physical file
-#define UARCH_CASCADE_ISSUE4_OPRND5 (0)  // collapse issue and operand fetch to match R10K 
+#endif
+#ifndef UARCH_CASCADE_ISSUE4_OPRND5
+#define UARCH_CASCADE_ISSUE4_OPRND5 (0)  // collapse issue and operand fetch to match R10K
+#endif
 
 #if (UARCH_ROB_RENAME)
 #if (DEBUG_LEVEL>=DEBUG_SILENT)

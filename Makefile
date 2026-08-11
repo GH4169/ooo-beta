@@ -43,8 +43,22 @@ LINK_OPTIONS = -Wall
 INCLUDE =
 
 EXECUTABLE = ooo
+DEMO_EXECUTABLE = build/ooo-demo
+DEMO_FLAGS = -std=gnu++17 -O0 -g3 -fno-omit-frame-pointer \
+	-DTRACE_RANDOM=0 -DUARCH_USE_BASELINE=0 -DDEBUG_LEVEL=DEBUG_FULL
+DEMO_HEADERS = $(wildcard *.h)
+
+.PHONY: all demo regress1 regress2 clean
 
 all: $(EXECUTABLE)
+
+# A small, deterministic build intended for source-level debugging.
+# It keeps the normal regression configuration and objects untouched.
+demo: $(DEMO_EXECUTABLE)
+
+$(DEMO_EXECUTABLE): $(SRC_OOO) $(DEMO_HEADERS) Makefile
+	mkdir -p $(dir $@)
+	$(CC) $(DEMO_FLAGS) $(SRC_OOO) -o $@ $(LINK_OPTIONS)
 
 regress1: $(EXECUTABLE)
 	./$(EXECUTABLE)	> output
@@ -67,7 +81,7 @@ depend:
 	$(CC) $(GPROF) $(OPTIM) $(DEBUG) $(INCLUDE) $(CC_OPTIONS) $*.cpp
 
 clean:
-	rm -f *.o *~ $(EXECUTABLE) Makefile.bak \#*\# libsim.a output
+	rm -f *.o *~ $(EXECUTABLE) $(DEMO_EXECUTABLE) Makefile.bak \#*\# libsim.a output
 
 save: clean	
 	tar -czf ./ver/`date +%s`.tgz *.cpp *.h Makefile README
